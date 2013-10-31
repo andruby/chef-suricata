@@ -21,3 +21,7 @@ template "/etc/pulledpork/disablesid.conf"
 template "/etc/pulledpork/dropsid.conf"
 template "/etc/pulledpork/enablesid.conf"
 template "/etc/pulledpork/modifysid.conf"
+
+bash "run pulledpork" do
+  code "#{node['pulledpork']['bin']} -c /etc/pulledpork/pulledpork.conf -S suricata"
+end

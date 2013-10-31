@@ -653,7 +653,7 @@ logging:
   # output section.  You can leave this out to get the default.
   #
   # This value is overriden by the SC_LOG_FORMAT env var.
-  #default-log-format: "[%i] %t - (%f:%l) <%%d> (%n) -- "
+  #default-log-format: "[%i] %t - (%f:%l) < %d > (%n) -- "
 
   # A regex to filter output.  Can be overridden in an output section.
   # Defaults to empty (no filter).
@@ -672,7 +672,7 @@ logging:
   - syslog:
       enabled: no
       facility: local5
-      format: "[%i] <%%d> -- "
+      format: "[%i] < %d > -- "
 
 # PF_RING configuration. for use with native PF_RING support
 # for more info see http://www.ntop.org/PF_RING.html
@@ -771,58 +771,9 @@ ipfw:
 
 # Set the default rule path here to search for the files.
 # if not set, it will look at the current working dir
-default-rule-path: /etc/suricata/rules
+default-rule-path: <%= node['suricata']['rules_path'] %>
 rule-files:
- - botcc.rules
- - ciarmy.rules
- - compromised.rules
- - drop.rules
- - dshield.rules
- - emerging-activex.rules
- - emerging-attack_response.rules
- - emerging-chat.rules
- - emerging-current_events.rules
- - emerging-dns.rules
- - emerging-dos.rules
- - emerging-exploit.rules
- - emerging-ftp.rules
- - emerging-games.rules
- - emerging-icmp_info.rules
- - emerging-icmp.rules
- - emerging-imap.rules
- - emerging-inappropriate.rules
- - emerging-malware.rules
- - emerging-misc.rules
- - emerging-mobile_malware.rules
- - emerging-netbios.rules
- - emerging-p2p.rules
- - emerging-policy.rules
- - emerging-pop3.rules
- - emerging-rpc.rules
- - emerging-scada.rules
- - emerging-scan.rules
- - emerging-shellcode.rules
- - emerging-smtp.rules
- - emerging-snmp.rules
- - emerging-sql.rules
- - emerging-telnet.rules
- - emerging-tftp.rules
- - emerging-trojan.rules
- - emerging-user_agents.rules
- - emerging-virus.rules
- - emerging-voip.rules
- - emerging-web_client.rules
- - emerging-web_server.rules
- - emerging-web_specific_apps.rules
- - emerging-worm.rules
- - rbn-malvertisers.rules
- - rbn.rules
- - tor.rules
- - decoder-events.rules # available in suricata sources under rules dir
- - stream-events.rules  # available in suricata sources under rules dir
- - http-events.rules    # available in suricata sources under rules dir
- - smtp-events.rules    # available in suricata sources under rules dir
- - dns-events.rules     # available in suricata sources under rules dir
+ - <%= node['suricata']['rule_file'] %>
 
 classification-file: /etc/suricata/classification.config
 reference-config-file: /etc/suricata/reference.config
@@ -870,15 +821,11 @@ vars:
 
     SHELLCODE_PORTS: "!80"
 
-    #ORACLE_PORTS: 1521
+    ORACLE_PORTS: 1521
 
     SSH_PORTS: 22
 
-    #DNP3_PORTS: 20000
-
-    HTTPS_PORTS: "443"
-
-    NAGIOS_PORTS: "5666"
+    DNP3_PORTS: 20000
 
 # Set the order of alerts bassed on actions
 # The default order is pass, drop, reject, alert

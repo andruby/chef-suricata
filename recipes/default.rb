@@ -25,6 +25,10 @@
 #
 
 include_recipe "apt"
+
+directory node['suricata']['rules_path']
+directory node['suricata']['log_dir']
+
 include_recipe "suricata::pulledpork"
 
 apt_repository "suricata-#{node['suricata']['ppa']}" do
@@ -40,8 +44,6 @@ package "suricata"
 template node['suricata']['config_file'] do
   source "suricata.yaml.erb"
 end
-
-directory node['suricata']['log_dir']
 
 template "/etc/init/suricata.conf" do
   source "suricata.upstart.erb"
