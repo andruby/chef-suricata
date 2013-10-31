@@ -36,3 +36,8 @@ apt_repository "suricata-beta" do
 end
 
 package "suricata"
+
+template "/etc/suricata/suricata.yaml" do
+  source "suricata.yaml.erb"
+end
+
