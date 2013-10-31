@@ -78,7 +78,7 @@ Vagrant.configure("2") do |config|
     }
 
     chef.run_list = [
-      "recipe[chef-suricata::default]"
+      "recipe[suricata::default]"
     ]
   end
 end

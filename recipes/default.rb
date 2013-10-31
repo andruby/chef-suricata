@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: chef-suricata
+# Cookbook Name:: suricata
 # Recipe:: default
 #
 # Copyright (C) 2013 Andrew Fecheyr

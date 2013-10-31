@@ -1,4 +1,4 @@
-# chef-suricata cookbook
+# Suricata cookbook
 
 # Requirements
 
