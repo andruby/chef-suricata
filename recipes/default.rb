@@ -23,3 +23,16 @@
 # OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
+
+
+include_recipe "apt"
+
+apt_repository "suricata-beta" do
+  uri          'http://ppa.launchpad.net/oisf/suricata-beta/ubuntu'
+  distribution node['lsb']['codename']
+  components   ['main']
+  keyserver    'keyserver.ubuntu.com'
+  key          '66EB736F'
+end
+
+package "suricata"
