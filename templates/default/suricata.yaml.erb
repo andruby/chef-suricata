@@ -653,7 +653,7 @@ logging:
   # output section.  You can leave this out to get the default.
   #
   # This value is overriden by the SC_LOG_FORMAT env var.
-  #default-log-format: "[%i] %t - (%f:%l) <%d> (%n) -- "
+  #default-log-format: "[%i] %t - (%f:%l) <%%d> (%n) -- "
 
   # A regex to filter output.  Can be overridden in an output section.
   # Defaults to empty (no filter).
@@ -665,14 +665,14 @@ logging:
   # disabled you will get the default - console output.
   outputs:
   - console:
-      enabled: yes
-  - file:
       enabled: no
+  - file:
+      enabled: yes
       filename: /var/log/suricata.log
   - syslog:
       enabled: no
       facility: local5
-      format: "[%i] <%d> -- "
+      format: "[%i] <%%d> -- "
 
 # PF_RING configuration. for use with native PF_RING support
 # for more info see http://www.ntop.org/PF_RING.html
