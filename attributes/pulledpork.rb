@@ -7,11 +7,35 @@ default['pulledpork']['rule_urls'] = [
 
 default['pulledpork']['mailto'] = nil
 
-default['pulledpork']['disablesids'] = %w{
-imap voip emerging-deleted emerging-botcc-BLOCK emerging-chat
-netbios experimental scada web-activex pop2
-}
-
 default['pulledpork']['dropsids'] = %w{}
 default['pulledpork']['enablesids'] = %w{}
 default['pulledpork']['modifysids'] = [""]
+
+default['pulledpork']['disablesids'] = %w{
+imap
+pop2
+pop3
+icmp
+voip
+netbios
+experimental
+chat
+dns
+web-iis
+oracle
+x11
+telnet
+policy
+scada
+web-activex
+web-coldfusion
+web-frontpage
+misc
+emerging-compromised
+emerging-game
+emerging-inappropriate
+emerging-deleted
+emerging-chat
+emerging-policy
+emerging-web_specific_apps
+}
