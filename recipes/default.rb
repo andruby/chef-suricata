@@ -27,8 +27,8 @@
 
 include_recipe "apt"
 
-apt_repository "suricata-beta" do
-  uri          'http://ppa.launchpad.net/oisf/suricata-beta/ubuntu'
+apt_repository "suricata-#{node['suricata']['ppa']}" do
+  uri          "http://ppa.launchpad.net/oisf/suricata-#{node['suricata']['ppa']}/ubuntu"
   distribution node['lsb']['codename']
   components   ['main']
   keyserver    'keyserver.ubuntu.com'
