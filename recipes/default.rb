@@ -24,8 +24,8 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
-
 include_recipe "apt"
+include_recipe "suricata::pulledpork"
 
 apt_repository "suricata-#{node['suricata']['ppa']}" do
   uri          "http://ppa.launchpad.net/oisf/suricata-#{node['suricata']['ppa']}/ubuntu"
