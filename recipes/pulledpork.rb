@@ -23,5 +23,13 @@ template "/etc/pulledpork/enablesid.conf"
 template "/etc/pulledpork/modifysid.conf"
 
 bash "run pulledpork" do
-  code "#{node['pulledpork']['bin']} -c /etc/pulledpork/pulledpork.conf -S suricata"
+  code node['pulledpork']['run_cmd']
+end
+
+# Run pulledpork once a day at 3:13am
+cron "pulledpork" do
+  hour 3
+  minute 13
+  mailto node['pulledpork']['mailto']
+  command node['pulledpork']['run_cmd']
 end

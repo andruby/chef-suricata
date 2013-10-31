@@ -26,8 +26,10 @@
 
 include_recipe "apt"
 
-directory node['suricata']['rules_path']
 directory node['suricata']['log_dir']
+directory node['suricata']['rules_path'] do
+  recursive true
+end
 
 include_recipe "suricata::pulledpork"
 
