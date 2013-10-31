@@ -169,9 +169,9 @@ outputs:
   # The interval field (in seconds) tells after how long output will be written
   # on the log file.
   - stats:
-      enabled: yes
+      enabled: <%= node['suricata']['enable_stats'] ? "yes" : "no" %>
       filename: stats.log
-      interval: 8
+      interval: 60
 
   # a line based alerts log similar to fast.log into syslog
   - syslog:
