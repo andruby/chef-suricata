@@ -41,3 +41,4 @@ template "/etc/suricata/suricata.yaml" do
   source "suricata.yaml.erb"
 end
 
+directory node['suricata']['log_dir']

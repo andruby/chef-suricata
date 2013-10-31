@@ -54,7 +54,7 @@
 # The default logging directory.  Any log or output file will be
 # placed here if its not specified with a full path name.  This can be
 # overridden with the -l command line parameter.
-default-log-dir: /var/log/suricata/
+default-log-dir: <%= node['suricata']['log_dir'] %>
 
 # Unix command socket can be used to pass commands to suricata.
 # An external tool can then connect to get information from suricata
