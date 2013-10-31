@@ -37,8 +37,17 @@ end
 
 package "suricata"
 
-template "/etc/suricata/suricata.yaml" do
+template node['suricata']['config_file'] do
   source "suricata.yaml.erb"
 end
 
 directory node['suricata']['log_dir']
+
+template "/etc/init/suricata.conf" do
+  source "suricata.upstart.erb"
+end
+
+service "suricata" do
+  provider Chef::Provider::Service::Upstart
+  action :start
+end
