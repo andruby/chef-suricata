@@ -72,7 +72,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :chef_solo do |chef|
     chef.json = {
       :suricata => {
-        :ppa => 'beta',
+        :ppa => 'stable',
         :interface => 'eth1'
       }
     }
