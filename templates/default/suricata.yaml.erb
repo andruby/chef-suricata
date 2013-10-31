@@ -870,11 +870,15 @@ vars:
 
     SHELLCODE_PORTS: "!80"
 
-    ORACLE_PORTS: 1521
+    #ORACLE_PORTS: 1521
 
     SSH_PORTS: 22
 
-    DNP3_PORTS: 20000
+    #DNP3_PORTS: 20000
+
+    HTTPS_PORTS: "443"
+
+    NAGIOS_PORTS: "5666"
 
 # Set the order of alerts bassed on actions
 # The default order is pass, drop, reject, alert
@@ -895,19 +899,20 @@ action-order:
 # like a routing table so the most specific entry matches.
 host-os-policy:
   # Make the default policy windows.
-  windows: [0.0.0.0/0]
-  bsd: []
-  bsd-right: []
-  old-linux: []
-  linux: [10.0.0.0/8, 192.168.1.100, "8762:2352:6241:7245:E000:0000:0000:0000"]
-  old-solaris: []
-  solaris: ["::1"]
-  hpux10: []
-  hpux11: []
-  irix: []
-  macos: []
-  vista: []
-  windows2k3: []
+  linux: [0.0.0.0/0]
+  #windows: [0.0.0.0/0]
+  #bsd: []
+  #bsd-right: []
+  #old-linux: []
+  #linux: [10.0.0.0/8, 192.168.1.100, "8762:2352:6241:7245:E000:0000:0000:0000"]
+  #old-solaris: []
+  #solaris: ["::1"]
+  #hpux10: []
+  #hpux11: []
+  #irix: []
+  #macos: []
+  #vista: []
+  #windows2k3: []
 
 # Limit for the maximum number of asn1 frames to decode (default 256)
 asn1-max-frames: 256
