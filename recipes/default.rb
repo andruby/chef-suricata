@@ -31,8 +31,6 @@ directory node['suricata']['rules_path'] do
   recursive true
 end
 
-include_recipe "suricata::pulledpork"
-
 apt_repository "suricata-#{node['suricata']['ppa']}" do
   uri          "http://ppa.launchpad.net/oisf/suricata-#{node['suricata']['ppa']}/ubuntu"
   distribution node['lsb']['codename']
@@ -55,3 +53,6 @@ service "suricata" do
   provider Chef::Provider::Service::Upstart
   action :start
 end
+
+include_recipe "suricata::pulledpork"
+
